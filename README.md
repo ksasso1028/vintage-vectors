@@ -4,7 +4,7 @@ VintageVectors takes a straightforward approach to tokenization by representing 
 
 ```python
 # tokens are segmented by whitespace
-# num_tokens: number of tokens along the sequence(channel) dimension
+# num_tokens: max number of words along the sequence(channel) dimension. Also known as context length
 # num_chars: max number of characters to represent a word (used 25 in experiments)
 tokenized = torch.zeros(num_tokens, num_chars)
 for idx, token in enumerate(tokens):
