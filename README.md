@@ -11,7 +11,7 @@ for idx, token in enumerate(tokens):
     tokenized[idx] = pad_max(torch.tensor(to_unicode(token)), num_chars)
 ```
 
-In this method, words are treated as channels, with each word encoded as a sequence of unicode code points in the feature dimension.
+In this method, words are treated as channels/steps, with each word encoded as a sequence of unicode code points in the feature dimension.
 
 ### Potential Benefits
 
