@@ -1,6 +1,6 @@
 ## VintageVectors: Unicode Point Tokenization
 
-VintageVectors takes a straightforward approach to tokenization by representing words as sequences of unicode character points.
+VintageVectors takes a straightforward approach to tokenization by representing words as sequences of unicode code points.
 
 ```python
 # tokens are segmented by whitespace
@@ -9,7 +9,7 @@ for idx, token in enumerate(tokens):
     tokenized[idx] = pad_max(torch.tensor(to_unicode(token)), num_chars)
 ```
 
-In this method, words are treated as channels, with each word encoded as a sequence of character unicode points in the feature dimension.
+In this method, words are treated as channels, with each word encoded as a sequence of unicode code points in the feature dimension.
 
 ### Potential Benefits
 
@@ -18,6 +18,8 @@ The simplicity of this approach could offer benefits in terms of:
 - **Memory Efficiency**: By leveraging the channel dimension to store words and the feature dimension to represent the word itself, VintageVectors may provide a memory-friendly solution compared to traditional tokenization methods.
 
 - **Preservation of Word Structure**: Encoding words as sequences of characters preserves the internal structure, which could be advantageous for tasks requiring character-level understanding.
+  
+-  **Handle any language out of the box**: Using code points allows us to model any character within unicode.
 
 ### Inspiration
 
