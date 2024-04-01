@@ -4,6 +4,8 @@ VintageVectors takes a straightforward approach to tokenization by representing 
 
 ```python
 # tokens are segmented by whitespace
+# num_tokens: number of tokens along the sequence(channel) dimension
+# num_chars: max number of characters to represent a word (used 25 in experiments)
 tokenized = torch.zeros(num_tokens, num_chars)
 for idx, token in enumerate(tokens):
     tokenized[idx] = pad_max(torch.tensor(to_unicode(token)), num_chars)
