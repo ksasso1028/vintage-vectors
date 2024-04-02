@@ -31,4 +31,9 @@ This vintage, back-to-basics method draws inspiration from two sources:
 
 2. **CANINE**: The [CANINE](https://arxiv.org/abs/2103.06874) paper, which tokenizes text at the unicode point level, served as a direct inspiration for this character-level tokenization scheme.
 
+3. **TODO**
+- [ ] Make this repo a pip package
+- [ ] Upload text models trained with this tokenization
+- [ ] Upload audio models when done training
+
 No claims are made about its effectiveness or superiority. VintageVectors is an exploration of a simple, character-level approach to tokenization, drawing parallels from the worlds of audio and existing methods, while revisiting the foundations of text representations.
