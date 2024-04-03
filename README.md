@@ -1,6 +1,6 @@
 ## VintageVectors: Unicode Point Tokenization
 
-VintageVectors takes a straightforward approach to tokenization by representing words as sequences of unicode code points.
+VintageVectors takes a straightforward, yet unconventional approach to tokenization by representing words as sequences of unicode code points.
 
 ```python
 # tokens are segmented by whitespace
