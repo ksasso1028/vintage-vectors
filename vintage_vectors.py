@@ -8,7 +8,8 @@ def tokenize(text,num_chars=25, num_tokens=300):
     tokens = text.split()
     tokenized = torch.zeros(num_tokens ,num_chars)
     for token in range(len(tokens)):
-        tokenized[token] = pad_max(torch.tensor(to_unicode(tokens[token])).float(), num_chars)
+        if token < num_tokens:
+            tokenized[token] = pad_max(torch.tensor(to_unicode(tokens[token])).float(), num_chars)
     return tokenized
 
 
