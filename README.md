@@ -19,9 +19,9 @@ The simplicity of this approach could offer benefits in terms of:
 
 - **Memory Efficiency**: By leveraging the channel dimension to store words and the feature dimension to represent the word itself, VintageVectors may provide a memory-friendly solution compared to traditional tokenization methods.
 
-- **Preservation of Word Structure**: Encoding words as sequences of characters preserves the internal structure, which could be advantageous for tasks requiring character-level understanding.
+- **Preservation of Word Structure**: Encoding words as sequences of characters preserves the internal structure, which could be advantageous for tasks requiring character-level understanding. Utilizes the benefits from character based tokenization schemes, while keeping a lower number of tokens than popular methods like Byte Pair Encoding (BPE). 
   
--  **Handle any language out of the box**: Using code points allows us to model any character within unicode.
+-  **Handle any language out of the box**: (in theory) Using code points allows us to model any character within unicode. Current processing is compatible with latin based languages
 
 ### Inspiration
 
