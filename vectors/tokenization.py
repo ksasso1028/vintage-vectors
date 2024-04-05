@@ -16,10 +16,12 @@ def tokenize(text, max_word_length=25, max_tokens=300):
     tokenized = torch.zeros(max_tokens, max_word_length)
     for idx, token in enumerate(tokens):
         if idx < max_tokens:
-            tokenized[idx] = pad_tensor(to_unicode(token), max_word_length)
+            t =  pad_tensor(to_unicode(token), max_word_length)
+            tokenized[idx] = t
+            print(t)
     return tokenized
 
-def to_unicode(text):
+def to_unicode(text, tensor=True):
     """
     Converts input text into Unicode code points.
 
@@ -29,17 +31,25 @@ def to_unicode(text):
     Returns:
         torch.Tensor: Tensor of Unicode code points.
     """
-    return torch.tensor([ord(char) for char in text]).float()
+    code_points = [ord(char) for char in text]
+    if tensor:
+        code_points = torch.tensor(code_points).float()
+    return code_points
 
-def pad_tensor(tensor, length):
+def pad_tensor(text, max_length=1000):
     """
-    Pads input tensor with zeros or truncates it to match the specified length.
+    Pads input tensor with zeros or truncates it to match the maximum length.
 
     Args:
-        tensor (torch.Tensor): Input tensor to be padded or truncated.
-        length (int): Desired length for the output tensor.
+        text (torch.Tensor): Input tensor to be padded or truncated.
+        max_length (int, optional): Maximum length for the output tensor. Defaults to 1000.
 
     Returns:
         torch.Tensor: Padded or truncated tensor.
     """
-    return torch.nn.functional.pad(tensor[:length], (0, max(0, length - len(tensor))))
+    if len(text) < max_length:
+        pad = (0, max_length - len(text))
+        text = torch.nn.functional.pad(text.clone(), pad)
+    else:
+        text = text[:max_length]
+    return text
