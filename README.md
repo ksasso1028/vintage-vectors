@@ -1,9 +1,8 @@
 ## Vintage Vectors: Unicode Code Point Tokenization
-
+![alt text](diagram.png)
 Vintage Vectors takes a straightforward, yet unconventional approach to tokenization by representing words as sequences of unicode code points.
 In this method, words are treated as channels/steps (row wise), with each word encoded as a sequence of unicode code points in the feature (column wise) dimension. This approach is
 simple, and reliable to reproduce.
-![alt text](diagram.png)
 
 
 ## Install
