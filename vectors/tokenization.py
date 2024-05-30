@@ -18,7 +18,6 @@ def tokenize(text, max_word_length=25, max_tokens=300):
         if idx < max_tokens:
             t =  pad_tensor(to_unicode(token), max_word_length)
             tokenized[idx] = t
-            print(t)
     return tokenized
 
 def to_unicode(text, tensor=True):
