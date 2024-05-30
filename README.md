@@ -1,17 +1,15 @@
-## VintageVectors: Unicode Point Tokenization
+## Vintage Vectors: Unicode Code Point Tokenization
 
-VintageVectors takes a straightforward, yet unconventional approach to tokenization by representing words as sequences of unicode code points.
+Vintage Vectors takes a straightforward, yet unconventional approach to tokenization by representing words as sequences of unicode code points.
+In this method, words are treated as channels/steps (row wise), with each word encoded as a sequence of unicode code points in the feature (column wise) dimension. This approach is
+simple, and reliable to reproduce.
+![alt text](diagram.png)
 
-```python
-# tokens are segmented by whitespace
-# num_tokens: max number of words along the sequence(channel) dimension. Also known as context length
-# num_chars: max number of characters to represent a word (used 25 in experiments)
-tokenized = torch.zeros(num_tokens, num_chars)
-for idx, token in enumerate(tokens):
-    tokenized[idx] = pad_max(torch.tensor(to_unicode(token)), num_chars)
+
+## Install
 ```
-
-In this method, words are treated as channels/steps, with each word encoded as a sequence of unicode code points in the feature dimension.
+pip install vintage-vectors
+```
 
 ### Potential Benefits
 
@@ -32,7 +30,7 @@ This vintage, back-to-basics method draws inspiration from two sources:
 2. **CANINE**: The [CANINE](https://arxiv.org/abs/2103.06874) paper, which tokenizes text at the unicode point level, served as a direct inspiration for this character-level tokenization scheme.
 
 **TODO**
-- [ ] Make this repo a pip package
+- [x] Make this repo a pip package
 - [ ] Upload text models trained with this tokenization
 - [ ] Upload audio models when done training
 
